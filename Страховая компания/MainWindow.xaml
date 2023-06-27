@@ -1,0 +1,46 @@
+﻿<Window x:Class="Страховая_компания.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Страховая_компания"
+        mc:Ignorable="d"
+        Title="Главное меню" Height="450" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="ButtonClients"
+                        Margin="5,5,0,0"
+                        HorizontalAlignment="Center"
+                        Width="auto"
+                        Content="Клиенты"
+                        Click="ButtonClients_Click" />
+            <Button x:Name="ButtonTreaty"
+                        Margin="5,5,0,0"
+                        HorizontalAlignment="Center"
+                        Width="auto"
+                        Content="Договоры"
+                        Click="ButtonTreaty_Click" />
+            <Button x:Name="ButtonEmployee"
+                        Margin="5,5,0,0"
+                        HorizontalAlignment="Center"
+                        Width="auto"
+                        Content="Сотрудники"
+                        Click="ButtonEmployee_Click" />
+            <Button x:Name="ButtonInsurancePayment"
+                        Margin="5,5,0,0"
+                        HorizontalAlignment="Center"
+                        Width="auto"
+                        Content="Выплата страховки"
+                        Click="ButtonInsurancePayment_Click" />
+            <Button x:Name="ButtonObjectsOfInsurance"
+                        Margin="5,5,0,0"
+                        HorizontalAlignment="Center"
+                        Width="auto"
+                        Content="Обьекты страховки"
+                        Click="ButtonObjectsOfInsurance_Click" />
+        </StackPanel>
+        
+
+    </Grid>
+</Window>

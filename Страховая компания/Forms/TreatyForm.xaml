@@ -1,0 +1,190 @@
+﻿<Window x:Class="Страховая_компания.Forms.TreatyForm"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Страховая_компания.Forms"
+        mc:Ignorable="d"
+        Title="Договоры" Height="450" Width="984">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Vertical"
+                        Margin="0,0,0,0">
+                <StackPanel x:Name="StackPanelAdd"
+                            Orientation="Horizontal"
+                            Margin="5,35,0,5">
+                    
+                    <DatePicker x:Name="DatePickerDateConclusion"
+                                Width="140"
+                                Margin="3,0,7,0"
+                                Padding="9,9,9,9"
+                                materialDesign:HintAssist.Hint="Дата договора"
+                                Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+                    <ComboBox x:Name="ComboBoxClients"
+                              Margin="0,0,7,0"
+                              Padding="9,9,9,9"
+                              MinWidth="140"
+                              Width="auto"
+                              VerticalAlignment="Top"
+                              materialDesign:HintAssist.Hint="Клиенты"
+                              materialDesign:TextFieldAssist.HasClearButton="True"
+                              ItemsSource="{Binding ShortStringList}"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}" />
+                    <ComboBox x:Name="ComboBoxEmployee"
+                              Margin="0,0,7,0"
+                              Padding="9,9,9,9"
+                              MinWidth="140"
+                              Width="auto"
+                              VerticalAlignment="Top"
+                              materialDesign:HintAssist.Hint="Сотрудник"
+                              materialDesign:TextFieldAssist.HasClearButton="True"
+                              ItemsSource="{Binding ShortStringList}"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}" />
+                    <ComboBox x:Name="ComboBoxObjects"
+                              Margin="0,0,7,0"
+                              Padding="9,9,9,9"
+                              MinWidth="140"
+                              Width="auto"
+                              VerticalAlignment="Top"
+                              materialDesign:HintAssist.Hint="Объект страхования"
+                              materialDesign:TextFieldAssist.HasClearButton="True"
+                              ItemsSource="{Binding ShortStringList}"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}" />
+                    <TextBox x:Name="TextBoxInsurance"
+                             Margin="3,0,7,0"
+                             Padding="9,9,9,9"
+                             Height="auto"
+                             VerticalAlignment="Top"
+                             materialDesign:HintAssist.Hint="Выплата по страховке"
+                             AcceptsReturn="True"
+                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto"
+                             Width="160"
+                             materialDesign:TextFieldAssist.HasClearButton="True" />
+                    
+                </StackPanel>
+                <StackPanel x:Name="StackPanelButtonAdd"
+                            Height="53"
+                            Orientation="Horizontal">
+                    <Button x:Name="ButtonAdd"
+                            Margin="10,3,0,0"
+                            HorizontalAlignment="Left"
+                            Click="ButtonAdd_Click"
+                            Height="35"
+                            Content="Добавить"
+                            Width="auto" />
+                    <Button x:Name="ButtonUpdate"
+                            Margin="10,3,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            IsEnabled="False"
+                            Height="35"
+                            Content="Обновить"
+                            Click="ButtonUpdate_Click"
+                            Visibility="Visible"
+                            Width="auto" />
+                    <Button x:Name="ButtonCancel"
+                            Margin="10,3,0,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            IsEnabled="False"
+                            Height="35"
+                            Content="Отменить"
+                            Visibility="Visible"
+                            Width="auto"
+                            Click="ButtonCancel_Click" />
+                    <Button x:Name="ButtonDelete"
+                            Margin="10,3,0,0"
+                            VerticalAlignment="Center"
+                            IsEnabled="False"
+                            HorizontalAlignment="Left"
+                            Height="35"
+                            Content="Удалить"
+                            Visibility="Visible"
+                            Width="auto"
+                            Click="ButtonDelete_Click" />
+
+                </StackPanel>
+            </StackPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       Text="Договор"
+                       Margin="0,2,0,0"
+                       Height="26"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       Width="auto">
+            </TextBlock>
+        </Grid>
+
+
+        <Grid Name="ListStudent"
+              Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="ButtonRefresh"
+                        Margin="5,5,5,0"
+                        Click="ButtonRefresh_Click"
+                        Height="auto"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Width="auto">
+                    Обновить
+                </Button>
+                <TextBox x:Name="TextBoxSearch"
+                         Padding="9,9,9,9"
+                         Height="auto"
+                         VerticalAlignment="Top"
+                         materialDesign:HintAssist.Hint="Поиск"
+                         AcceptsReturn="True"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         TextChanged="TextBoxSearch_TextChanged"
+                         Width="112"
+                         materialDesign:TextFieldAssist.HasClearButton="True" />
+            </StackPanel>
+            <ListView x:Name="TestView"
+                      HorizontalContentAlignment="Stretch"
+                      MinWidth="80"
+                      MinHeight="25"
+                      Margin="0,41,0,0"
+                      MouseDoubleClick="TestView_MouseDoubleClick">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Код"
+                                        DisplayMemberBinding="{Binding tid}"
+                                        Width="auto" />
+                        <GridViewColumn Header="Дата заполнения"
+                                        DisplayMemberBinding="{Binding date_of_conclusion}"
+                                        Width="auto" />
+                        <GridViewColumn Header="Код клиента"
+                                        DisplayMemberBinding="{Binding id_client}"
+                                        Width="auto" />
+                        <GridViewColumn Header="Код сотрудника"
+                                        DisplayMemberBinding="{Binding id_emp}"
+                                        Width="auto" />
+                        <GridViewColumn Header="Код объекта страхования"
+                                        DisplayMemberBinding="{Binding id_object}"
+                                        Width="auto" />
+                        <GridViewColumn Header="Выплата по страховке"
+                                        DisplayMemberBinding="{Binding insurance_payment}"
+                                        Width="auto" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <materialDesign:Snackbar x:Name="SnackbarOne"
+                                 Margin="0,0,10,0"
+                                 Grid.Row="0"
+                                 VerticalAlignment="Bottom"
+                                 HorizontalAlignment="Right"
+                                 IsActive="False"
+                                 Message="klema" />
+    </Grid>
+</Window>
