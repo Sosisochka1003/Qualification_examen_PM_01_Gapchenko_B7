@@ -40,7 +40,5 @@
                         Content="Обьекты страховки"
                         Click="ButtonObjectsOfInsurance_Click" />
         </StackPanel>
-        
-
     </Grid>
 </Window>
